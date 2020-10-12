@@ -43,7 +43,6 @@
     "safe-buffer": "^5.1.1",
     "sbercoind-rpc": "git://github.com/SbercoinCom/sbercoind-rpc.git#master",
     "sbercoinjs-lib": "git://github.com/SbercoinCom/sbercoinjs-lib.git#master",
-    "sberjs-wallet": "^0.2.2",
     "scryptsy": "^2.0.0",
     "secp256k1": "^4.0.2",
     "varuint-bitcoin": "^1.1.0"
