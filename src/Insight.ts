@@ -50,9 +50,10 @@ export class Insight {
   public async sendRawTx(rawtx: string): Promise<Insight.ISendRawTxResult> {
     const res = await this.axios.post('https://explorer.sbercoin.com/api/tx/send', {
       rawtx,
+    }).then(function (response) {
+      return response.data
     })
-
-    return res.data
+    return res
   }
 
   public async contractCall(
