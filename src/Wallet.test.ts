@@ -101,7 +101,7 @@ describe("Wallet", () => {
     const tx = await wallet.send(toAddress, amount, {
       feeRate: 4000, // 0.04 SBER / KB
     })
-    assert.isNotEmpty(tx.txid)
+    assert.isNotEmpty(tx.id)
 
     await generateBlock(network)
     await sleep(2000)
@@ -109,7 +109,7 @@ describe("Wallet", () => {
     const senderNewInfo = await insight.getInfo(wallet.address)
     const receiverNewInfo = await insight.getInfo(toAddress)
 
-    assert.equal(senderOldInfo.balanceSat - senderNewInfo.balanceSat, Math.round(1.009 * 1e7), "sender")
-    assert.equal(receiverNewInfo.balanceSat - receiverOldInfo.balanceSat, 1e7, "receiver")
+    assert.equal(senderOldInfo.balance - senderNewInfo.balance, Math.round(1.009 * 1e7), "sender")
+    assert.equal(receiverNewInfo.balance - receiverOldInfo.balance, 1e7, "receiver")
   })
 })
