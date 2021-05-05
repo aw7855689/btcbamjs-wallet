@@ -63,21 +63,20 @@ export interface IContractCreateTXOptions {
 export interface IUTXO {
   // This structure is slightly different from that returned by Insight API
   address: string
-  txid: string
-  hash: string // txid
+    transactionId: string
+    outputIndex: number
 
-  pos: number // vout (insight)
+    /**
+     * Public key that controls this UXTO, as hex string.
+     */
+    scriptPubKey: string
 
-  /**
-   * Public key that controls this UXTO, as hex string.
-   */
-  scriptPubKey: string
+    value: number
 
-  amount: number
-  value: number // greph (insight)
-
-  isStake: boolean
-  confirmations: number
+    isStake: boolean
+    height: number
+    confirmations: number
+    pos: number
 }
 
 function ensureAmountInteger(n: number) {
@@ -148,7 +147,7 @@ export function buildPubKeyHashTransaction(
 
   let vinSum = new BigNumber(0)
   for (const input of inputs) {
-    txb.addInput(input.hash, input.pos)
+    txb.addInput(input.transactionId, input.pos)
     vinSum = vinSum.plus(input.value)
   }
 
@@ -218,7 +217,7 @@ export function buildCreateContractTransaction(
 
   let totalValue = new BigNumber(0)
   for (const input of inputs) {
-    txb.addInput(input.hash, input.pos)
+    txb.addInput(input.transactionId, input.pos)
     totalValue = totalValue.plus(input.value)
   }
 
@@ -363,7 +362,7 @@ export function buildSendToContractTransaction(
   // add inputs to txb
   let vinSum = new BigNumber(0)
   for (const input of inputs) {
-    txb.addInput(input.hash, input.pos)
+    txb.addInput(input.transactionId, input.pos)
     vinSum = vinSum.plus(input.value)
   }
 

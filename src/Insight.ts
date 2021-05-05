@@ -50,9 +50,10 @@ export class Insight {
   public async sendRawTx(rawtx: string): Promise<Insight.ISendRawTxResult> {
     const res = await axios.post('/tx/send', {
       rawtx,
-    }).then((response: {data: string}) => {
+    }).then((response: {data: Promise<Insight.ISendRawTxResult>}) => {
       return response.data
     })
+    return {id: '', status: 0}
   }
 
   public async contractCall(
@@ -205,7 +206,7 @@ export namespace Insight {
   export interface IVout {
     value: string
     scriptPubKey: IScriptPubKey
-    receipt: ITransactionReceipt[]
+    receipt: ITransactionReceipt
   }
 
   export interface IScriptPubKey {

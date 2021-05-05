@@ -95,7 +95,7 @@ export declare namespace Insight {
     interface IVout {
         value: string;
         scriptPubKey: IScriptPubKey;
-        receipt: ITransactionReceipt[];
+        receipt: ITransactionReceipt;
     }
     interface IScriptPubKey {
         addresses: string[];
