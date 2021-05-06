@@ -79,8 +79,11 @@ export declare namespace Insight {
         /**
          * Balance of address in greph
          */
+        balance: number;
         coinBalance: number;
+        totalReceived: number;
         totalCoinReceived: number;
+        totalSent: number;
         totalCoinSent: number;
         unconfirmed: number;
         /**

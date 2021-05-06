@@ -66,11 +66,11 @@ describe("Wallet", () => {
     assert.containsAllKeys(info, [
       "addrStr",
       "balance",
-      "balanceSat",
+      "coinBalance",
       "totalReceived",
-      "totalReceivedSat",
+      "totalCoinReceived",
       "totalSent",
-      "totalSentSat",
+      "totalCoinSent",
       "transactions",
     ])
   })

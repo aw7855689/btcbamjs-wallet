@@ -123,9 +123,7 @@ export class Insight {
     address: string,
     pageNum: number = 0,
   ): Promise<Insight.IRawTransactions> {
-    const result = await this.axios.get(`/txs/`, {
-      params: { address, pageNum },
-    })
+    const result = await this.axios.get(`/address/${address}/basic-txs/`)
     return result.data as Insight.IRawTransactions
   }
 }
@@ -185,10 +183,12 @@ export namespace Insight {
     /**
      * Balance of address in greph
      */
-    coinBalance: number
-
-    totalCoinReceived: number
-    totalCoinSent: number
+     balance: number
+     coinBalance: number;
+     totalReceived: number
+     totalCoinReceived: number
+     totalSent: number
+     totalCoinSent: number
 
     unconfirmed: number
 
