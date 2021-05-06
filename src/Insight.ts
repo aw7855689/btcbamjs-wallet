@@ -48,7 +48,7 @@ export class Insight {
   }
 
   public async sendRawTx(rawtx: string): Promise<Insight.ISendRawTxResult> {
-    const res = await axios.post('/tx/send', {
+    const res = await this.axios.post('/tx/send', {
       rawtx,
     }).then((response: {data: Promise<Insight.ISendRawTxResult>}) => {
       return response.data
@@ -76,7 +76,8 @@ export class Insight {
    * @param nblocks
    */
   public async estimateFee(nblocks: number = 6): Promise<any> {
-    const res = await axios.get('/info').then(function (response: {data: {feeRate: number}}) {
+    const res = await this.axios.get('/info').then(function (response: {data: {feeRate: number}}) {
+      
       return response.data.feeRate
     })
     const feeRate: number = res
