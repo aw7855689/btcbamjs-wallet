@@ -81,7 +81,7 @@ export declare namespace Insight {
          */
         balance: number;
         totalReceived: number;
-        totalSet: number;
+        totalSent: number;
         unconfirmed: number;
         /**
          * List of transaction IDs

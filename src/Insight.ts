@@ -185,10 +185,10 @@ export namespace Insight {
     /**
      * Balance of address in greph
      */
-    balance: number
+    coinBalance: number
 
-    totalReceived: number
-    totalSet: number
+    totalCoinReceived: number
+    totalCoinSent: number
 
     unconfirmed: number
 
