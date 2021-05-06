@@ -79,9 +79,9 @@ export declare namespace Insight {
         /**
          * Balance of address in greph
          */
-        balance: number;
-        totalReceived: number;
-        totalSent: number;
+        coinBalance: number;
+        totalCoinReceived: number;
+        totalCoinSent: number;
         unconfirmed: number;
         /**
          * List of transaction IDs

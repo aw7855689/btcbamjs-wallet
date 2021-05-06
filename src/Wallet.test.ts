@@ -109,7 +109,7 @@ describe("Wallet", () => {
     const senderNewInfo = await insight.getInfo(wallet.address)
     const receiverNewInfo = await insight.getInfo(toAddress)
 
-    assert.equal(senderOldInfo.balance - senderNewInfo.balance, Math.round(1.009 * 1e7), "sender")
-    assert.equal(receiverNewInfo.balance - receiverOldInfo.balance, 1e7, "receiver")
+    assert.equal(senderOldInfo.coinBalance - senderNewInfo.coinBalance, Math.round(1.009 * 1e7), "sender")
+    assert.equal(receiverNewInfo.coinBalance - receiverOldInfo.coinBalance, 1e7, "receiver")
   })
 })
