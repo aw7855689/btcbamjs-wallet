@@ -82,8 +82,8 @@ describe("Wallet", () => {
 
     const rawTxs = await wallet.getTransactions()
 
-    assert.containsAllKeys(rawTxs, ["txs", "pagesTotal"])
-    assert.isArray(rawTxs.txs)
+    assert.containsAllKeys(rawTxs, ["transactions", "totalCount"])
+    assert.isArray(rawTxs.transactions)
   })
 
   it("sends payment to a receiving address", async function () {

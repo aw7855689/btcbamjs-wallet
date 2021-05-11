@@ -241,8 +241,21 @@ export namespace Insight {
     qrc20TokenTransfers: IQRC20Transfer[]
   }
 
+  export interface IRawTransactionBasicInfo {
+    id: string
+    blockheight: number
+    blockhash: string
+    timestamp: number
+    confirmations: number
+    amount: number
+    inputvalue: number
+    outputvalue: number
+    fees: number
+    type: string
+  }
+
   export interface IRawTransactions {
-    pagesTotal: number
-    txs: IRawTransactionInfo[]
+    totalCount: number
+    transactions: IRawTransactionBasicInfo[]
   }
 }
