@@ -34,8 +34,8 @@ export const networksInfo: { [key: string]: INetworkInfo } = {
     bech32: "sber",
     bip32: { public: 76067358, private: 76066276 },
     pubKeyHash: 63,
-    scriptHash: 60,
-    wif: 26,
+    scriptHash: 26,
+    wif: 60,
   },
   [NetworkNames.TESTNET]: {
     name: NetworkNames.TESTNET,
@@ -43,8 +43,8 @@ export const networksInfo: { [key: string]: INetworkInfo } = {
     bech32: "tsber",
     bip32: { public: 70617039, private: 70615956 },
     pubKeyHash: 125,
-    scriptHash: 122,
-    wif: 85,
+    scriptHash: 85,
+    wif: 122,
   },
   [NetworkNames.REGTEST]: {
     name: NetworkNames.REGTEST,
@@ -52,8 +52,8 @@ export const networksInfo: { [key: string]: INetworkInfo } = {
     bech32: "rtsb",
     bip32: { public: 70617039, private: 70615956 },
     pubKeyHash: 125,
-    scriptHash: 122,
-    wif: 85,
+    scriptHash: 85,
+    wif: 122,
   },
 }
 

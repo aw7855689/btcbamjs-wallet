@@ -124,7 +124,7 @@ export class Insight {
     address: string,
     pageNum: number = 0,
   ): Promise<Insight.IRawTransactions> {
-    const result = await this.axios.get(`/address/${address}/basic-txs/`)
+    const result = await this.axios.get(`/address/${address}/basic-txs?pageSize=10&page=${pageNum}`)
     return result.data as Insight.IRawTransactions
   }
 }
