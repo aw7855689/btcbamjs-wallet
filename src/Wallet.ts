@@ -24,7 +24,7 @@ import { params, IScryptParams } from "./scrypt"
  *
  * This value will be used for testnet.
  */
-const defaultTxFeePerByte = Math.ceil((0.004 * 1e7) / 1024)
+const defaultTxFeePerByte = Math.ceil((0.0001 * 1e7) / 1024)
 
 export class Wallet {
   public address: string
@@ -272,9 +272,9 @@ export class Wallet {
     // massage UXTO to format accepted by bitcoinjs
     const bitcoinjsUTXOs: IUTXO[] = uxtos.map((uxto) => ({
       ...uxto,
-      pos: uxto.vout,
-      value: uxto.satoshis,
-      hash: uxto.txid,
+      pos: uxto.outputIndex,
+      value: uxto.value,
+      hash: uxto.transactionId,
     })).filter((utxo) => utxo.confirmations >= 500 || !utxo.isStake)
 
     return bitcoinjsUTXOs

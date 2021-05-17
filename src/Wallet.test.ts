@@ -66,11 +66,11 @@ describe("Wallet", () => {
     assert.containsAllKeys(info, [
       "addrStr",
       "balance",
-      "balanceSat",
+      "coinBalance",
       "totalReceived",
-      "totalReceivedSat",
+      "totalCoinReceived",
       "totalSent",
-      "totalSentSat",
+      "totalCoinSent",
       "transactions",
     ])
   })
@@ -82,8 +82,8 @@ describe("Wallet", () => {
 
     const rawTxs = await wallet.getTransactions()
 
-    assert.containsAllKeys(rawTxs, ["txs", "pagesTotal"])
-    assert.isArray(rawTxs.txs)
+    assert.containsAllKeys(rawTxs, ["transactions", "totalCount"])
+    assert.isArray(rawTxs.transactions)
   })
 
   it("sends payment to a receiving address", async function () {
@@ -101,7 +101,7 @@ describe("Wallet", () => {
     const tx = await wallet.send(toAddress, amount, {
       feeRate: 4000, // 0.04 SBER / KB
     })
-    assert.isNotEmpty(tx.txid)
+    assert.isNotEmpty(tx.id)
 
     await generateBlock(network)
     await sleep(2000)
@@ -109,7 +109,7 @@ describe("Wallet", () => {
     const senderNewInfo = await insight.getInfo(wallet.address)
     const receiverNewInfo = await insight.getInfo(toAddress)
 
-    assert.equal(senderOldInfo.balanceSat - senderNewInfo.balanceSat, Math.round(1.009 * 1e7), "sender")
-    assert.equal(receiverNewInfo.balanceSat - receiverOldInfo.balanceSat, 1e7, "receiver")
+    assert.equal(senderOldInfo.coinBalance - senderNewInfo.coinBalance, Math.round(1.009 * 1e7), "sender")
+    assert.equal(receiverNewInfo.coinBalance - receiverOldInfo.coinBalance, 1e7, "receiver")
   })
 })
