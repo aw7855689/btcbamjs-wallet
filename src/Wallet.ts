@@ -204,9 +204,10 @@ export class Wallet {
   public async contractCall(
     contractAddress: string,
     encodedData: string,
+    sender: string,
     opts: IContractSendTXOptions = {},
   ): Promise<Insight.IContractCall> {
-    return this.insight.contractCall(contractAddress, encodedData)
+    return this.insight.contractCall(contractAddress, encodedData, sender)
   }
 
   /**

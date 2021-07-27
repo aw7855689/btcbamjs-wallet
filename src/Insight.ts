@@ -53,17 +53,18 @@ export class Insight {
     }).then((response: {data: Promise<Insight.ISendRawTxResult>}) => {
       return response.data
     })
-    return {id: '', status: 0}
+    return res
   }
 
   public async contractCall(
     address: string,
     encodedData: string,
+    sender: string //hexAddress
   ): Promise<Insight.IContractCall> {
     // FIXME wow, what a weird API design... maybe we should just host the RPC
     // server, with limited API exposed.
     const res = await this.axios.get(
-      `/contract/${address}/call?data=${encodedData}`,
+      `/contract/${address}/call?data=${encodedData}&sender=${sender}`,
     )
 
     return res.data

@@ -51,7 +51,7 @@ describe("Contract", () => {
 
     // get
     const encodedData = "6d4ce63c"
-    const result = await wallet.contractCall(contractAddress, encodedData)
+    const result = await wallet.contractCall(contractAddress, encodedData, wallet.address)
 
     const executionResult = result.executionResult
     assert.equal(executionResult.output, "0000000000000000000000000000000000000000000000000000000000000064")
@@ -67,7 +67,7 @@ describe("Contract", () => {
 
     await sleep(1000)
 
-    const result = await wallet.contractCall(contractAddress, "6d4ce63c")
+    const result = await wallet.contractCall(contractAddress, "6d4ce63c", wallet.address)
 
     const executionResult = result.executionResult
     assert.equal(executionResult.output, "0000000000000000000000000000000000000000000000000000000000000001")

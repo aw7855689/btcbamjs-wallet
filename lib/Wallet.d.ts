@@ -83,7 +83,7 @@ export declare class Wallet {
      * @param encodedData The ABI encoded method call, and parameter values.
      * @param opts
      */
-    contractCall(contractAddress: string, encodedData: string, opts?: IContractSendTXOptions): Promise<Insight.IContractCall>;
+    contractCall(contractAddress: string, encodedData: string, sender: string, opts?: IContractSendTXOptions): Promise<Insight.IContractCall>;
     /**
      * Create a send-to-contract transaction that invokes a contract's method.
      *

@@ -7,7 +7,7 @@ export declare class Insight {
     listUTXOs(address: string): Promise<Insight.IUTXO[]>;
     getInfo(address: string): Promise<Insight.IGetInfo>;
     sendRawTx(rawtx: string): Promise<Insight.ISendRawTxResult>;
-    contractCall(address: string, encodedData: string): Promise<Insight.IContractCall>;
+    contractCall(address: string, encodedData: string, sender: string): Promise<Insight.IContractCall>;
     /**
      * Estimate the fee per KB of txdata, in greph. Returns -1 if no estimate is
      * available. It always return -1 for testnet.
