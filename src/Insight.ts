@@ -63,6 +63,9 @@ export class Insight {
   ): Promise<Insight.IContractCall> {
     // FIXME wow, what a weird API design... maybe we should just host the RPC
     // server, with limited API exposed.
+    if (sender.length != 40)
+      sender = '0000000000000000000000000000000000000000'
+      
     const res = await this.axios.get(
       `/contract/${address}/call?data=${encodedData}&sender=${sender}`,
     )

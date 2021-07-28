@@ -2,7 +2,7 @@ import { IProvider } from "./Provider"
 import axios, { CancelTokenSource } from "axios"
 import { Insight } from "./Insight"
 import { Wallet } from "./Wallet"
-const Encoder = require("Sweb3")
+import {Encoder} from "Sweb3"
 
 export class WalletRPCProvider implements IProvider {
 
@@ -36,7 +36,7 @@ export class WalletRPCProvider implements IProvider {
       case "sendtocontract":
         return this.wallet.contractSend(contractAddress, encodedData, opts)
       case "callcontract":
-        return this.wallet.contractCall(contractAddress, encodedData, Encoder.addressToHex(this.wallet.address), opts)
+        return this.wallet.contractCall(contractAddress, encodedData, Encoder.addressToHex(this.wallet.address).substring(24), opts)
       default:
         throw new Error("Unknow method call")
     }
