@@ -32,6 +32,7 @@
   "dependencies": {
     "@types/bip38": "^2.0.0",
     "@types/secp256k1": "^3.5.0",
+    "Sweb3": "git+https://github.com/SbercoinCom/sweb3.js.git",
     "axios": "^0.21.1",
     "bignumber.js": "4.1.0",
     "bip38": "^2.0.2",
