@@ -9,7 +9,7 @@ const utxos = require("../../utxos.json")
 async function main() {
   const maxSend = await wallet.sendEstimateMaxValue(wallet.address)
 
-  console.log("max send", maxSend / 1e7)
+  console.log("max send", maxSend / 1e8)
 
   const maxContractSend = await wallet.contractSendEstimateMaxValue(
     wallet.address,
@@ -20,7 +20,7 @@ async function main() {
     },
   )
 
-  console.log("maxContractSend", maxContractSend / 1e7)
+  console.log("maxContractSend", maxContractSend / 1e8)
 }
 
 main().catch((err) => console.log("err", err))

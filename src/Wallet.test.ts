@@ -93,7 +93,7 @@ describe("Wallet", () => {
     const wallet = network.fromWIF(wifPrivateKey)
 
     const toAddress = "sLn9vqbr2Gx3TsVR9QyTVB5mrMoh4x43Uf"
-    const amount = 1e7 // 1 BTCBAM (in greph)
+    const amount = 1e8 // 1 BTCBAM (in satoshi)
 
     const senderOldInfo = await insight.getInfo(wallet.address)
     const receiverOldInfo = await insight.getInfo(toAddress)
@@ -109,7 +109,7 @@ describe("Wallet", () => {
     const senderNewInfo = await insight.getInfo(wallet.address)
     const receiverNewInfo = await insight.getInfo(toAddress)
 
-    assert.equal(senderOldInfo.coinBalance - senderNewInfo.coinBalance, Math.round(1.009 * 1e7), "sender")
-    assert.equal(receiverNewInfo.coinBalance - receiverOldInfo.coinBalance, 1e7, "receiver")
+    assert.equal(senderOldInfo.coinBalance - senderNewInfo.coinBalance, Math.round(1.009 * 1e8), "sender")
+    assert.equal(receiverNewInfo.coinBalance - receiverOldInfo.coinBalance, 1e8, "receiver")
   })
 })

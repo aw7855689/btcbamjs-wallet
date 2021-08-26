@@ -48,7 +48,7 @@ There are some differences from the original web wallet repo.
 - Removed reactive data setters that are intended to trigger view updates, to make this a plain-old JavaScript module.
 - Each wallet instance is instantiated with a network explicitly. This allows simultaneous use of different networks.
 - TypeScript for type hinting.
-- Uses greph (1e7) as internal units
+- Uses satoshi (1e8) as internal units
   - Can represent up to ~90 million BTCBAM accurately.
 - Uses [coinselect](https://github.com/bitcoinjs/coinselect) to select utxos.
   - Taking into account the size of a transaction, and multiplies that by fee rate per byte.
@@ -111,7 +111,7 @@ This example restores a wallet from a private key (in [WIF](https://en.bitcoin.i
 
 The transaction is signed locally, and the transaction submitted to a remote API.
 
-The currency unit used is `greph`. To convert BTCBAM to Greph you should multiply the amount you want with `1e7`.
+The currency unit used is `satoshi`. To convert BTCBAM to Satoshi you should multiply the amount you want with `1e8`.
 
 ```js
 import { networks } from "btcbamjs-wallet";
@@ -127,7 +127,7 @@ async function main() {
 
   const toAddr = "qS3ThpDn4HRH9we2hZUdF3F3uR7TTvpZ9v";
   // Sending 0.1 BTCBAM
-  const sendtx = await wallet.send(toAddr, 0.01 * 1e7, { feeRate: 500 });
+  const sendtx = await wallet.send(toAddr, 0.01 * 1e8, { feeRate: 500 });
   console.log("sendtx", sendtx);
 }
 
@@ -152,7 +152,7 @@ contract Burn {
 }
 ```
 
-The ABI encoding for the `burnbabyburn()` invokation is `e179b912`. We'll burn 0.05 BTCBAM, expressed in unit of greph.
+The ABI encoding for the `burnbabyburn()` invokation is `e179b912`. We'll burn 0.05 BTCBAM, expressed in unit of satoshi.
 
 ```ts
 import { networks } from "btcbamjs-wallet";
@@ -168,7 +168,7 @@ async function main() {
   const encodedData = "e179b912"; // burnbabyburn()
 
   const tx = await wallet.contractSend(contractAddress, encodedData, {
-    amount: 0.05 * 1e7 // 0.05 BTCBAM in greph
+    amount: 0.05 * 1e8 // 0.05 BTCBAM in satoshi
   });
 
   console.log(tx);
@@ -286,7 +286,7 @@ Output:
      '3e167a2534d5d18b71ba56bbba8bfdb317711b3f2ef30f10d34941ddc9aa4861',
      'bd15b9d9cf4e94915e246a7d78de14cb0a6acec12624902b45717997ef71854e',
      '0c99d68c261dd713819c068bd0213bc048bd4928b3d86d71503bb3348d7f42f5',
-     'd5b823bb524862855181d231e716ff86fa301f701fd4c23b68168debe334da2e',
+     'd5b823bb524862855181d231e816ff86fa301f701fd4c23b68168debe334da2e',
      '7660e89eb45b536b9c7527edafc0884fc2941c0f050625780d3e100c8aeb28f4',
      'eddbbac9bb7dae1cf4093d893133eb52c483b13ea66f6354c63302f9127ec1bd',
      '6f99149d78ad720591b4cca643fe2599a0a07076f8f3e80b5962cba326772e83',
@@ -311,7 +311,7 @@ Method signature:
 ```ts
 /**
  * @param to The receiving address
- * @param amount The amount to transfer (in greph)
+ * @param amount The amount to transfer (in satoshi)
  * @return The raw transaction as hexadecimal string
  *
  */
@@ -326,7 +326,7 @@ Example:
 
 ```ts
 const toAddress = "sZaTYNEimGLuqnBDpP3KvBKsFs3DbCuwnr";
-const amount = 0.15 * 1e7; // 0.15 BTCBAM
+const amount = 0.15 * 1e8; // 0.15 BTCBAM
 
 const tx = await wallet.send(toAddress, amount);
 console.log(tx);
@@ -335,7 +335,7 @@ console.log(tx);
 Output:
 
 ```
-{ txid: '40fec162e0d4e1377b5e6744eeba562408e22f60399be41e7ba24e1af37f773c' }
+{ txid: '40fec162e0d4e1377b5e6744eeba562408e22f60399be41e8ba24e1af37f773c' }
 ```
 
 #### async wallet.send options
@@ -343,7 +343,7 @@ Output:
 ```ts
 export interface ISendTxOptions {
   /**
-   * Fee rate to pay for the raw transaction data (greph per byte). The
+   * Fee rate to pay for the raw transaction data (satoshi per byte). The
    * default value is the query result of current network's fee rate.
    */
   feeRate?: number;
@@ -354,7 +354,7 @@ Setting tx fee rate manually:
 
 ```ts
 const tx = await wallet.send(toAddress, amount, {
-  // rate is 400 greph per byte, or  ~0.004 BTCBAM/KB, as is typical.
+  // rate is 400 satoshi per byte, or  ~0.004 BTCBAM/KB, as is typical.
   feeRate: 400
 });
 ```
@@ -376,7 +376,7 @@ Method signature:
 ```ts
 /**
  * @param to The receiving address
- * @param amount The amount to transfer (in greph)
+ * @param amount The amount to transfer (in satoshi)
  * @param opts
  *
  * @returns The raw transaction as hexadecimal string
@@ -392,7 +392,7 @@ Example:
 
 ```ts
 const toAddress = "sZaTYNEimGLuqnBDpP3KvBKsFs3DbCuwnr";
-const amount = 0.15 * 1e7;
+const amount = 0.15 * 1e8;
 
 const rawtx = await wallet.generateTx(toAddress, amount);
 console.log(rawtx);
@@ -466,7 +466,7 @@ public async contractSend(
 
 Example:
 
-Invoke the `burn()` method, and transfer 5000000 greph to the contract.
+Invoke the `burn()` method, and transfer 5000000 satoshi to the contract.
 
 - The `burn()` method call ABI encodes to `e179b912`
 - The 5000000 is `msg.value` in contract code.
@@ -478,7 +478,7 @@ const encodedData = "e179b912";
 
 // Invoke a contract's method, and transferring 0.05 to it.
 const tx = await wallet.contractSend(contractAddress, encodedData, {
-  amount: 0.05 * 1e7
+  amount: 0.05 * 1e8
 });
 
 console.log(tx);
@@ -534,7 +534,7 @@ const rawtx = await wallet.generateContractSendTx(
   contractAddress,
   encodedData,
   {
-    amount: 0.01 * 1e7
+    amount: 0.01 * 1e8
   }
 );
 
@@ -544,13 +544,13 @@ console.log(rawtx);
 Example output:
 
 ```
-0100000001e7b6f2767e8a63ca6cf632a1bf32206e5edcf140bc395aebd83668d7cff92fd1010000006b483045022100b86c4cbb2aecab44c951f99c0cbbf6115cf80881b39f33b4efd4d296892c1c15022062db1f681e684616e55303556577c9242102ff7a6815894dfb3090a7928fa13a012103c12c73abaccf35b40454e7eb0c4b5760ce7a720d0cd2c9fb7f5423168aaeea03ffffffff0240420f000000000022540390d003012804e179b912141620cd3c24b29d424932ec30c5925f8c0a00941cc2880256e0010000001976a914c78300c58ab7c73e1767e3d550464d591ab0a12888ac00000000
+0100000001e8b6f2767e8a63ca6cf632a1bf32206e5edcf140bc395aebd83668d7cff92fd1010000006b483045022100b86c4cbb2aecab44c951f99c0cbbf6115cf80881b39f33b4efd4d296892c1c15022062db1f681e684616e55303556577c9242102ff7a6815894dfb3090a7928fa13a012103c12c73abaccf35b40454e7eb0c4b5760ce7a720d0cd2c9fb7f5423168aaeea03ffffffff0240420f000000000022540390d003012804e179b912141620cd3c24b29d424932ec30c5925f8c0a00941cc2880256e0010000001976a914c78300c58ab7c73e1767e3d550464d591ab0a12888ac00000000
 ```
 
 Decode the raw transaction:
 
 ```
-btcbam-cli decoderawtransaction 0100000001e7b6f2767e8a6...
+btcbam-cli decoderawtransaction 0100000001e8b6f2767e8a6...
 ```
 
 Decoded Raw TX:
@@ -616,7 +616,7 @@ const contractAddress = "b10071ee33512ce8a0c06ecbc14a5f585a27a3e2";
 const encodedData = "e179b912";
 
 const result = await wallet.contractCall(contractAddress, encodedData, {
-  amount: 0.01 * 1e7
+  amount: 0.01 * 1e8
 });
 
 console.log(JSON.stringify(result, null, 2));

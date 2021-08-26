@@ -74,7 +74,7 @@ export class Insight {
   }
 
   /**
-   * Estimate the fee per KB of txdata, in greph. Returns -1 if no estimate is
+   * Estimate the fee per KB of txdata, in satoshi. Returns -1 if no estimate is
    * available. It always return -1 for testnet.
    *
    * @param nblocks
@@ -89,11 +89,11 @@ export class Insight {
       return -1
     }
 
-    return Math.ceil(feeRate * 1e7)
+    return Math.ceil(feeRate * 1e8)
   }
 
   /**
-   * Estimate the fee per byte of txdata, in greph. Returns -1 if no estimate is
+   * Estimate the fee per byte of txdata, in satoshi. Returns -1 if no estimate is
    * available. It always return -1 for testnet.
    *
    * @param nblocks
@@ -186,7 +186,7 @@ export namespace Insight {
     addrStr: string
 
     /**
-     * Balance of address in greph
+     * Balance of address in satoshi
      */
      balance: number
      coinBalance: number;

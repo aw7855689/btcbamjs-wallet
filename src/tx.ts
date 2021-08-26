@@ -15,7 +15,7 @@ import coinSelect = require("coinselect")
  */
 export interface ISendTxOptions {
   /**
-   * Fee rate to pay for the raw transaction data (greph per byte). The
+   * Fee rate to pay for the raw transaction data (satoshi per byte). The
    * default value is the query result of the network's fee rate.
    */
   feeRate?: number
@@ -23,39 +23,39 @@ export interface ISendTxOptions {
 
 export interface IContractSendTXOptions {
   /**
-   * unit: greph
+   * unit: satoshi
    */
   amount?: number
 
   /**
-   * unit: greph
+   * unit: satoshi
    */
   gasLimit?: number
 
   /**
-   * unit: greph / gas
+   * unit: satoshi / gas
    */
   gasPrice?: number
 
   /**
-   * unit: greph / kilobyte
+   * unit: satoshi / kilobyte
    */
   feeRate?: number
 }
 
 export interface IContractCreateTXOptions {
   /**
-   * unit: greph
+   * unit: satoshi
    */
   gasLimit?: number
 
   /**
-   * unit: greph / gas
+   * unit: satoshi / gas
    */
   gasPrice?: number
 
   /**
-   * unit: greph / kilobyte
+   * unit: satoshi / kilobyte
    */
   feeRate?: number
 }
@@ -118,7 +118,7 @@ export function estimatePubKeyHashTransactionMaxSend(
  *
  * @param keyPair
  * @param to
- * @param amount (unit: greph)
+ * @param amount (unit: satoshi)
  * @param feeRate
  * @param utxoList
  */
@@ -172,7 +172,7 @@ export function buildPubKeyHashTransaction(
  *
  * @param keyPair
  * @param code The contract byte code
- * @param feeRate Fee per byte of tx. (unit: greph)
+ * @param feeRate Fee per byte of tx. (unit: satoshi)
  * @param utxoList
  * @returns the built tx
  */
@@ -242,7 +242,7 @@ export function buildCreateContractTransaction(
 
 const defaultContractSendTxOptions = {
   gasLimit: 250000,
-  gasPrice: 40, // 40 greph / gas
+  gasPrice: 40, // 40 satoshi / gas
   amount: 0,
 
   // Wallet uses only one address. Can't really support senderAddress.
@@ -309,7 +309,7 @@ export function estimateSendToContractTransactionMaxValue(
  * @param keyPair
  * @param contractAddress
  * @param encodedData
- * @param feeRate Fee per byte of tx. (unit: greph / byte)
+ * @param feeRate Fee per byte of tx. (unit: satoshi / byte)
  * @param utxoList
  * @returns the built tx
  */
@@ -369,7 +369,7 @@ export function buildSendToContractTransaction(
   // send-to-contract output
   txb.addOutput(opcallScript, amount)
 
-  // change output (in greph)
+  // change output (in satoshi)
   const change = vinSum
     .minus(txfee)
     .minus(gasLimitFee)
@@ -387,7 +387,7 @@ export function buildSendToContractTransaction(
 }
 
 // The prevalent network fee is 0.004 per KB. If set to 100 times of norm, assume error.
-const MAX_FEE_RATE = Math.ceil((0.004 * 100 * 1e7) / 1024)
+const MAX_FEE_RATE = Math.ceil((0.004 * 100 * 1e8) / 1024)
 
 function checkFeeRate(feeRate: number) {
   if (feeRate > MAX_FEE_RATE) {

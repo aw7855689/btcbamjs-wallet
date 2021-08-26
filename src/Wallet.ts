@@ -24,7 +24,7 @@ import { params, IScryptParams } from "./scrypt"
  *
  * This value will be used for testnet.
  */
-const defaultTxFeePerByte = Math.ceil((0.0001 * 1e7) / 1024)
+const defaultTxFeePerByte = Math.ceil((0.0001 * 1e8) / 1024)
 
 export class Wallet {
   public address: string
@@ -87,7 +87,7 @@ export class Wallet {
   }
 
   /**
-   * The network relay fee rate. (greph per byte)
+   * The network relay fee rate. (satoshi per byte)
    */
   public async feeRatePerByte(): Promise<number> {
     const feeRate = await this.insight.estimateFeePerByte()
@@ -101,7 +101,7 @@ export class Wallet {
    * Generate and sign a payment transaction.
    *
    * @param to The receiving address
-   * @param amount The amount to transfer (in greph)
+   * @param amount The amount to transfer (in satoshi)
    * @param opts
    *
    * @returns The raw transaction as hexadecimal string
@@ -124,7 +124,7 @@ export class Wallet {
    * @param to The receiving address
    * @param opts
    *
-   * @returns greph
+   * @returns satoshi
    */
   public async sendEstimateMaxValue(
     to: string,
@@ -143,7 +143,7 @@ export class Wallet {
    * remote API (without revealing the wallet's secret).
    *
    * @param to The receiving address
-   * @param amount The amount to transfer (in greph)
+   * @param amount The amount to transfer (in satoshi)
    * @param opts
    * @return The raw transaction as hexadecimal string
    */
@@ -237,7 +237,7 @@ export class Wallet {
    * @param encodedData The ABI encoded method call, and parameter values.
    * @param opts
    *
-   * @returns greph
+   * @returns satoshi
    */
   public async contractSendEstimateMaxValue(
     contractAddress: string,

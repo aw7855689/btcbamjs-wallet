@@ -22,14 +22,14 @@ export class WalletRPCProvider implements IProvider {
     ] = params
 
     // The underlying btcbamjs-wallet API expects gasPrice and amount to be specified in sat
-    const gasPriceInGreph = Math.floor((gasPrice || 0.0000004) * 1e7)
-    const amountInGreph = Math.floor((amount || 0) * 1e7)
+    const gasPriceInSatoshi = Math.floor((gasPrice || 0.0000004) * 1e8)
+    const amountInSatoshi = Math.floor((amount || 0) * 1e8)
 
     opts = {
       ...opts,
-      amount: amountInGreph,
+      amount: amountInSatoshi,
       gasLimit: gasLimit || 200000,
-      gasPrice: gasPriceInGreph,
+      gasPrice: gasPriceInSatoshi,
     }
 
     switch (method.toLowerCase()) {
