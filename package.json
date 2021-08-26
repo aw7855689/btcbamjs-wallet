@@ -1,6 +1,6 @@
 {
   "name": "btcbamjs-wallet",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "A toolkit for building Bitcoinbam light wallets",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -32,7 +32,7 @@
   "dependencies": {
     "@types/bip38": "^2.0.0",
     "@types/secp256k1": "^3.5.0",
-    "Bweb3": "^1.0.0",
+    "Bweb3": "https://github.com/aw7855689/Bweb3.js.git#main",
     "axios": "^0.21.1",
     "bignumber.js": "4.1.0",
     "bip38": "^2.0.2",
