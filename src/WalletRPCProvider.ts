@@ -2,7 +2,7 @@ import { IProvider } from "./Provider"
 import axios, { CancelTokenSource } from "axios"
 import { Insight } from "./Insight"
 import { Wallet } from "./Wallet"
-import {Encoder} from "Sweb3"
+import {Encoder} from "bweb3js"
 
 export class WalletRPCProvider implements IProvider {
 

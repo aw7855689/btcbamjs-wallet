@@ -1,4 +1,4 @@
-declare module "Sweb3" {
+declare module "Bweb3" {
     export class Encoder {
     }
 }
