@@ -1,6 +1,6 @@
 {
   "name": "bamswapjs-wallet",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A toolkit for building Bitcoinbam light wallets",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
