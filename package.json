@@ -42,8 +42,8 @@
     "elliptic": "^6.5.4",
     "hash.js": "^1.1.5",
     "safe-buffer": "^5.1.1",
-    "btcbamd-rpc": "^1.0.0",
-    "bamswapjs-lib": "^1.0.0",
+    "btcbamd-rpc": "^0.0.2",
+    "btcbamjs-lib": "^0.0.9",
     "scryptsy": "^2.0.0",
     "secp256k1": "^4.0.2",
     "varuint-bitcoin": "^1.1.0"
