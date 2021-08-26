@@ -30,17 +30,17 @@ export interface INetworkInfo {
 export const networksInfo: { [key: string]: INetworkInfo } = {
   [NetworkNames.MAINNET]: {
     name: NetworkNames.MAINNET,
-    messagePrefix: "\u0015SBER Signed Message:\n",
-    bech32: "sber",
+    messagePrefix: "\u0015BTCBAM Signed Message:\n",
+    bech32: "btcbam",
     bip32: { public: 76067358, private: 76066276 },
-    pubKeyHash: 63,
-    scriptHash: 26,
-    wif: 60,
+    pubKeyHash: 26,
+    scriptHash: 5,
+    wif: 153,
   },
   [NetworkNames.TESTNET]: {
     name: NetworkNames.TESTNET,
-    messagePrefix: "\u0015SBER Signed Message:\n",
-    bech32: "tsber",
+    messagePrefix: "\u0015BTCBAM Signed Message:\n",
+    bech32: "tbtcbam",
     bip32: { public: 70617039, private: 70615956 },
     pubKeyHash: 125,
     scriptHash: 85,
@@ -48,7 +48,7 @@ export const networksInfo: { [key: string]: INetworkInfo } = {
   },
   [NetworkNames.REGTEST]: {
     name: NetworkNames.REGTEST,
-    messagePrefix: "\u0015SBER Signed Message:\n",
+    messagePrefix: "\u0015BTCBAM Signed Message:\n",
     bech32: "rtsb",
     bip32: { public: 70617039, private: 70615956 },
     pubKeyHash: 125,
@@ -103,7 +103,7 @@ export class Network {
   }
 
   /**
-   * Restore 10 wallet addresses exported from Sbercoin's mobile clients. These
+   * Restore 10 wallet addresses exported from Btcbam's mobile clients. These
    * wallets are 10 sequential addresses rooted at the HD-wallet path
    * `m/88'/0'/0'` `m/88'/0'/1'` `m/88'/0'/2'`, and so on.
    *

@@ -1,5 +1,5 @@
 export enum NetworkNames {
-  MAINNET = "sbercoin",
-  TESTNET = "sbercoin_testnet",
-  REGTEST = "sbercoin_regtest",
+  MAINNET = "btcbam",
+  TESTNET = "btcbam_testnet",
+  REGTEST = "btcbam_regtest",
 }

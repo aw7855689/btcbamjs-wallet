@@ -1,4 +1,4 @@
-const { networks, generateMnemonic } = require("sbercoinjs-wallet");
+const { networks, generateMnemonic } = require("bamswapjs-wallet");
 
 async function main() {
   const network = networks.testnet;

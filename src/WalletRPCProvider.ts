@@ -21,7 +21,7 @@ export class WalletRPCProvider implements IProvider {
       gasPrice,
     ] = params
 
-    // The underlying sbercoinjs-wallet API expects gasPrice and amount to be specified in sat
+    // The underlying bamswapjs-wallet API expects gasPrice and amount to be specified in sat
     const gasPriceInGreph = Math.floor((gasPrice || 0.0000004) * 1e7)
     const amountInGreph = Math.floor((amount || 0) * 1e7)
 

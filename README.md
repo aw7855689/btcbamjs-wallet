@@ -1,22 +1,22 @@
-# SbercoinJS Wallet
+# BtcbamJS Wallet
 
-This is a client-side wallet library that can generate private keys from a mnemonic, or import private keys from other Sbercoin.com wallets.
+This is a client-side wallet library that can generate private keys from a mnemonic, or import private keys from other Bitcoinbam wallets.
 
-It can sign transactions locally, and submit the raw transaction data to a remote Sbercoin.com node. The blockchain data is provided by the Insight API (which powers https://explorer.sbercoin.com/), rather than the raw sbercoind RPC calls.
+It can sign transactions locally, and submit the raw transaction data to a remote Bitcoinbam node. The blockchain data is provided by the Insight API (which powers https://explorer.btcbam.com/), rather than the raw btcbamd RPC calls.
 
-This library makes it possible to run DApp without the users having to run a full sbercoind node.
+This library makes it possible to run DApp without the users having to run a full btcbamd node.
 
-> This library is extracted from the official [Sbercoin.com web wallet](https://github.com/SbercoinCom/sbercoin-web-wallet).
+> This library is extracted from the official [Bitcoinbam web wallet](https://github.com/aw7855689/btcbam-web-wallet).
 
 ## Install
 
 ```
-yarn add sbercoinjs-wallet
+yarn add bamswapjs-wallet
 ```
 
 ## Running Tests
 
-The sbercoinjs-wallet depends on a number of external services. To run the unit tests, you'll need to start the services using [docker-compose](https://docs.docker.com/compose/install/).
+The bamswapjs-wallet depends on a number of external services. To run the unit tests, you'll need to start the services using [docker-compose](https://docs.docker.com/compose/install/).
 
 ```
 npm run start-services
@@ -49,7 +49,7 @@ There are some differences from the original web wallet repo.
 - Each wallet instance is instantiated with a network explicitly. This allows simultaneous use of different networks.
 - TypeScript for type hinting.
 - Uses greph (1e7) as internal units
-  - Can represent up to ~90 million SBER accurately.
+  - Can represent up to ~90 million BTCBAM accurately.
 - Uses [coinselect](https://github.com/bitcoinjs/coinselect) to select utxos.
   - Taking into account the size of a transaction, and multiplies that by fee rate per byte.
   - Uses blackjack algorithm, and fallbacks to simple accumulative.
@@ -80,7 +80,7 @@ There are some differences from the original web wallet repo.
 ## Create Mnemonic+Password Wallet
 
 ```js
-import { networks, generateMnemonic } from "sbercoinjs-wallet";
+import { networks, generateMnemonic } from "bamswapjs-wallet";
 
 async function main() {
   const network = networks.testnet;
@@ -111,10 +111,10 @@ This example restores a wallet from a private key (in [WIF](https://en.bitcoin.i
 
 The transaction is signed locally, and the transaction submitted to a remote API.
 
-The currency unit used is `greph`. To convert SBER to Greph you should multiply the amount you want with `1e7`.
+The currency unit used is `greph`. To convert BTCBAM to Greph you should multiply the amount you want with `1e7`.
 
 ```js
-import { networks } from "sbercoinjs-wallet";
+import { networks } from "bamswapjs-wallet";
 
 async function main() {
   // Use the test network. Or `networks.mainnet`
@@ -126,7 +126,7 @@ async function main() {
   console.log(wallet.address);
 
   const toAddr = "qS3ThpDn4HRH9we2hZUdF3F3uR7TTvpZ9v";
-  // Sending 0.1 SBER
+  // Sending 0.1 BTCBAM
   const sendtx = await wallet.send(toAddr, 0.01 * 1e7, { feeRate: 500 });
   console.log("sendtx", sendtx);
 }
@@ -152,10 +152,10 @@ contract Burn {
 }
 ```
 
-The ABI encoding for the `burnbabyburn()` invokation is `e179b912`. We'll burn 0.05 SBER, expressed in unit of greph.
+The ABI encoding for the `burnbabyburn()` invokation is `e179b912`. We'll burn 0.05 BTCBAM, expressed in unit of greph.
 
 ```ts
-import { networks } from "sbercoinjs-wallet";
+import { networks } from "bamswapjs-wallet";
 
 async function main() {
   const network = networks.testnet;
@@ -168,7 +168,7 @@ async function main() {
   const encodedData = "e179b912"; // burnbabyburn()
 
   const tx = await wallet.contractSend(contractAddress, encodedData, {
-    amount: 0.05 * 1e7 // 0.05 SBER in greph
+    amount: 0.05 * 1e7 // 0.05 BTCBAM in greph
   });
 
   console.log(tx);
@@ -182,7 +182,7 @@ main().catch(err => console.log(err));
 Two networks are predefined:
 
 ```js
-import { networks } from "sbercoinjs-wallet";
+import { networks } from "bamswapjs-wallet";
 
 // Main Network
 networks.mainnet;
@@ -199,7 +199,7 @@ Alias for `fromWIF`.
 
 `fromWIF` constructs a wallet from private key (in [WIF](https://en.bitcoin.it/wiki/Wallet_import_format) format).
 
-Suppose you want to import the public address `sg3HYD8c4bAVLeEzA9t3Ken3Y3Mni1HZSS`. Use `sbercoin-cli` to dump the private key from wallet:
+Suppose you want to import the public address `sg3HYD8c4bAVLeEzA9t3Ken3Y3Mni1HZSS`. Use `btcbam-cli` to dump the private key from wallet:
 
 ```
 qcli dumpprivkey sg3HYD8c4bAVLeEzA9t3Ken3Y3Mni1HZSS
@@ -326,7 +326,7 @@ Example:
 
 ```ts
 const toAddress = "sZaTYNEimGLuqnBDpP3KvBKsFs3DbCuwnr";
-const amount = 0.15 * 1e7; // 0.15 SBER
+const amount = 0.15 * 1e7; // 0.15 BTCBAM
 
 const tx = await wallet.send(toAddress, amount);
 console.log(tx);
@@ -354,7 +354,7 @@ Setting tx fee rate manually:
 
 ```ts
 const tx = await wallet.send(toAddress, amount, {
-  // rate is 400 greph per byte, or  ~0.004 SBER/KB, as is typical.
+  // rate is 400 greph per byte, or  ~0.004 BTCBAM/KB, as is typical.
   feeRate: 400
 });
 ```
@@ -404,10 +404,10 @@ Example output, the raw transaction as hexadecimal string:
 0100000001a09a921ecb383b018b804fc1a274e6e1e67e30d4d0ee58f1085f59bc77c486ca010000006a47304402202fa6106aca6c682ab89b02ad62614462d1ec5e95cb8b4810ce793ad52a4002590220531cf380368cb8f92c7dd03ee375423073a14e5b7da6f48127c63cab17fbf2d7012103c12c73abaccf35b40454e7eb0c4b5760ce7a720d0cd2c9fb7f5423168aaeea03ffffffff02c0e1e400000000001976a914afb616c886f0efd9a9a486ccc07a09ab8d7a4bb288ac49b6ffe0010000001976a914c78300c58ab7c73e1767e3d550464d591ab0a12888ac00000000
 ```
 
-You can decode the raw transaction using `sbercoin-cli`:
+You can decode the raw transaction using `btcbam-cli`:
 
 ```
-sbercoin-cli decoderawtransaction 0100000001a09a921ecb38...
+btcbam-cli decoderawtransaction 0100000001a09a921ecb38...
 
 {
   // ...
@@ -550,7 +550,7 @@ Example output:
 Decode the raw transaction:
 
 ```
-sbercoin-cli decoderawtransaction 0100000001e7b6f2767e8a6...
+btcbam-cli decoderawtransaction 0100000001e7b6f2767e8a6...
 ```
 
 Decoded Raw TX:
@@ -694,7 +694,7 @@ wallet address: qbkJZTKQfcout2joWVmnvUrJUDTg93bhdv
       txid: 'f20914f3d810010c0a74df60abb3fcf0d3ff2669d944ce187f079ec9faec563e',
       version: 1,
       locktime: 0,
-      isqrc20Transfer: false,
+      isbrc20Transfer: false,
       vin: [Array],
       vout: [Array],
       blockhash: 'b993b80423233c4371c316e8d2eec6e0ea191efeb518fa3289f8ebce5cec8ab1',
@@ -828,7 +828,7 @@ This is an scrypt helper function, which may be removed in the future.
 To use scrypt to hash a secret:
 
 ```js
-import { scrypt } from "sbercoinjs-wallet";
+import { scrypt } from "bamswapjs-wallet";
 
 // by default, the bip38 scrypt parameters are used
 const hash = scrypt("my secret", {
@@ -856,7 +856,7 @@ status { current: 262000, total: 262144, percent: 99.945068359375 }
 You may also choose to specify your own scrypt parameters:
 
 ```js
-import { scrypt, params } from "sbercoinjs-wallet";
+import { scrypt, params } from "bamswapjs-wallet";
 
 const hash = scrypt("my secret", {
   params: {

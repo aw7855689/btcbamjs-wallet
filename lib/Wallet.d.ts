@@ -104,7 +104,7 @@ export declare class Wallet {
     contractSendEstimateMaxValue(contractAddress: string, encodedData: string, opts?: IContractSendTXOptions): Promise<number>;
     /**
      * Massage UTXOs returned by the Insight API to UTXO format accepted by the
-     * underlying sbercoinjs-lib.
+     * underlying bamswapjs-lib.
      */
     getBitcoinjsUTXOs(): Promise<IUTXO[]>;
     /**

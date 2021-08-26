@@ -1,4 +1,4 @@
-declare module "sbercoind-rpc" {
+declare module "btcbamd-rpc" {
     export interface IConfig {
         protocol?: string
         user?: string

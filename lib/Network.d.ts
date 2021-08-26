@@ -36,7 +36,7 @@ export declare class Network {
      */
     fromEncryptedPrivateKey(encrypted: string, passhprase: string, scryptParams?: IScryptParams): Wallet;
     /**
-     * Restore 10 wallet addresses exported from Sbercoin's mobile clients. These
+     * Restore 10 wallet addresses exported from Btcbam's mobile clients. These
      * wallets are 10 sequential addresses rooted at the HD-wallet path
      * `m/88'/0'/0'` `m/88'/0'/1'` `m/88'/0'/2'`, and so on.
      *

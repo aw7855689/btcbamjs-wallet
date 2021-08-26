@@ -1,8 +1,8 @@
-import RpcClient, {IConfig} from "sbercoind-rpc"
+import RpcClient, {IConfig} from "btcbamd-rpc"
 
 import {Network, NetworkNames} from "./Network"
 
-export default class SbercoinRPC {
+export default class BtcbamRPC {
   public rpc: RpcClient
 
   constructor(config?: IConfig) {
@@ -21,8 +21,8 @@ export default class SbercoinRPC {
   }
 }
 
-export const rpcClient = new SbercoinRPC({
-  user: "sbercoin",
+export const rpcClient = new BtcbamRPC({
+  user: "btcbam",
   pass: "test",
   port: "18332",
   protocol: "http",

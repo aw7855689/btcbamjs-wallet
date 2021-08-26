@@ -11,7 +11,7 @@ then
 	set -
 fi
 
-LOCKFILE=${SBER_DATADIR}/import-test-wallet.lock
+LOCKFILE=${BTCBAM_DATADIR}/import-test-wallet.lock
 
 if [ ! -e $LOCKFILE ]; then
   while

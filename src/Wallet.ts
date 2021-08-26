@@ -262,7 +262,7 @@ export class Wallet {
 
   /**
    * Massage UTXOs returned by the Insight API to UTXO format accepted by the
-   * underlying sbercoinjs-lib.
+   * underlying bamswapjs-lib.
    */
   public async getBitcoinjsUTXOs(): Promise<IUTXO[]> {
     const uxtos = await this.getUTXOs()
@@ -327,6 +327,6 @@ export class Wallet {
   }
 
   // TODO
-  // qrc20 lookup
+  // brc20 lookup
   // estimateCall
 }

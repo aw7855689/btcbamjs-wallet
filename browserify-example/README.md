@@ -2,7 +2,7 @@
 Build bundle:
 
 ```
-yarn run browserify index.js --standalone SbercoinWallet -o bundle.js
+yarn run browserify index.js --standalone BtcbamWallet -o bundle.js
 ```
 
 Server index.html:

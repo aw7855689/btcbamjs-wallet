@@ -103,7 +103,7 @@ export declare namespace Insight {
     interface IScriptPubKey {
         addresses: string[];
     }
-    interface IQRC20Transfer {
+    interface IBRC20Transfer {
         address: string;
         name: string;
         symbol: string;
@@ -125,7 +125,7 @@ export declare namespace Insight {
         fees: number;
         blockhash: string;
         blockheight: number;
-        qrc20TokenTransfers: IQRC20Transfer[];
+        brc20TokenTransfers: IBRC20Transfer[];
     }
     interface IRawTransactionBasicInfo {
         id: string;

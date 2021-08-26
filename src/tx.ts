@@ -106,7 +106,7 @@ export function estimatePubKeyHashTransactionMaxSend(
       return maxAmount
     }
 
-    // step down by 0.001 SBER
+    // step down by 0.001 BTCBAM
     maxAmount = maxAmount - 100000
   }
 

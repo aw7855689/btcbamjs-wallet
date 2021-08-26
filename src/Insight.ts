@@ -4,8 +4,8 @@ import { INetworkInfo } from "./Network"
 import { NetworkNames } from "./constants"
 
 const INSIGHT_BASEURLS: { [key: string]: string } = {
-  [NetworkNames.MAINNET]: "https://explorer.sbercoin.com/api",
-  [NetworkNames.TESTNET]: "https://testnet.sbercoin.com/insight-api",
+  [NetworkNames.MAINNET]: "https://explorer.btcbam.com/api",
+  [NetworkNames.TESTNET]: "https://testnet.btcbam.com/insight-api",
   [NetworkNames.REGTEST]: "http://localhost:3001/insight-api",
 }
 
@@ -218,7 +218,7 @@ export namespace Insight {
     addresses: string[]
   }
 
-  export interface IQRC20Transfer {
+  export interface IBRC20Transfer {
     address: string
     name: string
     symbol: string
@@ -242,7 +242,7 @@ export namespace Insight {
     fees: number // 手续费
     blockhash: string
     blockheight: number
-    qrc20TokenTransfers: IQRC20Transfer[]
+    brc20TokenTransfers: IBRC20Transfer[]
   }
 
   export interface IRawTransactionBasicInfo {

@@ -15,9 +15,9 @@ module.exports = {
     extensions: ['.ts', '.js']
   },
   output: {
-    filename: 'sbercoin-wallet.js',
+    filename: 'btcbam-wallet.js',
     path: path.resolve(__dirname, 'dist'),
-    library: "SbercoinWallet",
+    library: "BtcbamWallet",
     libraryTarget: "umd",
   }
 }

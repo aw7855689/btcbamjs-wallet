@@ -1,7 +1,7 @@
 {
-  "name": "sberjs-wallet",
-  "version": "0.2.2",
-  "description": "A toolkit for building Sbercoin.com light wallets",
+  "name": "bamswapjs-wallet",
+  "version": "0.1.0",
+  "description": "A toolkit for building Bitcoinbam light wallets",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "scripts": {
@@ -12,9 +12,9 @@
     "test-watch": "tsc -w & mocha -w lib/**/*.test.js"
   },
   "keywords": [],
-  "author": "Sbercoin-com <hello@sbercoin.com>",
+  "author": "Btcbam <hello@btcbam.com>",
   "license": "ISC",
-  "repository": "git+https://github.com/SbercoinCom/sbercoinjs-wallet.git",
+  "repository": "git+https://github.com/aw7855689/bamswapjs-wallet.git",
   "devDependencies": {
     "@types/bitcoinjs-lib": "^3.3.1",
     "@types/chai": "^4.1.2",
@@ -32,7 +32,7 @@
   "dependencies": {
     "@types/bip38": "^2.0.0",
     "@types/secp256k1": "^3.5.0",
-    "Sweb3": "git+https://github.com/SbercoinCom/sweb3.js.git",
+    "bweb3js": "^1.0.0",
     "axios": "^0.21.1",
     "bignumber.js": "4.1.0",
     "bip38": "^2.0.2",
@@ -42,14 +42,14 @@
     "elliptic": "^6.5.4",
     "hash.js": "^1.1.5",
     "safe-buffer": "^5.1.1",
-    "sbercoind-rpc": "git://github.com/SbercoinCom/sbercoind-rpc.git#master",
-    "sbercoinjs-lib": "git://github.com/SbercoinCom/sbercoinjs-lib.git#master",
+    "btcbamd-rpc": "^1.0.0",
+    "bamswapjs-lib": "^1.0.0",
     "scryptsy": "^2.0.0",
     "secp256k1": "^4.0.2",
     "varuint-bitcoin": "^1.1.0"
   },
   "bugs": {
-    "url": "https://github.com/SbercoinCom/sbercoinjs-wallet/issues"
+    "url": "https://github.com/aw7855689/bamswapjs-wallet/issues"
   },
-  "homepage": "https://github.com/SbercoinCom/sbercoinjs-wallet#readme"
+  "homepage": "https://github.com/aw7855689/bamswapjs-wallet#readme"
 }

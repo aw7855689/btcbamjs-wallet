@@ -5,6 +5,6 @@
   "license": "MIT",
   "dependencies": {
     "browserify": "^16.5.1",
-    "sbercoinjs-wallet": "git://github.com/SbercoinCom/sbercoinjs-wallet.git#master"
+    "bamswapjs-wallet": "git://github.com/aw7855689/bamswapjs-wallet.git#master"
   }
 }
