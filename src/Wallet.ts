@@ -262,7 +262,7 @@ export class Wallet {
 
   /**
    * Massage UTXOs returned by the Insight API to UTXO format accepted by the
-   * underlying bamswapjs-lib.
+   * underlying btcbamjs-lib.
    */
   public async getBitcoinjsUTXOs(): Promise<IUTXO[]> {
     const uxtos = await this.getUTXOs()

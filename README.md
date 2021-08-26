@@ -11,12 +11,12 @@ This library makes it possible to run DApp without the users having to run a ful
 ## Install
 
 ```
-yarn add bamswapjs-wallet
+yarn add btcbamjs-wallet
 ```
 
 ## Running Tests
 
-The bamswapjs-wallet depends on a number of external services. To run the unit tests, you'll need to start the services using [docker-compose](https://docs.docker.com/compose/install/).
+The btcbamjs-wallet depends on a number of external services. To run the unit tests, you'll need to start the services using [docker-compose](https://docs.docker.com/compose/install/).
 
 ```
 npm run start-services
@@ -80,7 +80,7 @@ There are some differences from the original web wallet repo.
 ## Create Mnemonic+Password Wallet
 
 ```js
-import { networks, generateMnemonic } from "bamswapjs-wallet";
+import { networks, generateMnemonic } from "btcbamjs-wallet";
 
 async function main() {
   const network = networks.testnet;
@@ -114,7 +114,7 @@ The transaction is signed locally, and the transaction submitted to a remote API
 The currency unit used is `greph`. To convert BTCBAM to Greph you should multiply the amount you want with `1e7`.
 
 ```js
-import { networks } from "bamswapjs-wallet";
+import { networks } from "btcbamjs-wallet";
 
 async function main() {
   // Use the test network. Or `networks.mainnet`
@@ -155,7 +155,7 @@ contract Burn {
 The ABI encoding for the `burnbabyburn()` invokation is `e179b912`. We'll burn 0.05 BTCBAM, expressed in unit of greph.
 
 ```ts
-import { networks } from "bamswapjs-wallet";
+import { networks } from "btcbamjs-wallet";
 
 async function main() {
   const network = networks.testnet;
@@ -182,7 +182,7 @@ main().catch(err => console.log(err));
 Two networks are predefined:
 
 ```js
-import { networks } from "bamswapjs-wallet";
+import { networks } from "btcbamjs-wallet";
 
 // Main Network
 networks.mainnet;
@@ -828,7 +828,7 @@ This is an scrypt helper function, which may be removed in the future.
 To use scrypt to hash a secret:
 
 ```js
-import { scrypt } from "bamswapjs-wallet";
+import { scrypt } from "btcbamjs-wallet";
 
 // by default, the bip38 scrypt parameters are used
 const hash = scrypt("my secret", {
@@ -856,7 +856,7 @@ status { current: 262000, total: 262144, percent: 99.945068359375 }
 You may also choose to specify your own scrypt parameters:
 
 ```js
-import { scrypt, params } from "bamswapjs-wallet";
+import { scrypt, params } from "btcbamjs-wallet";
 
 const hash = scrypt("my secret", {
   params: {

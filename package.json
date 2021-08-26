@@ -1,6 +1,6 @@
 {
-  "name": "bamswapjs-wallet",
-  "version": "0.1.3",
+  "name": "btcbamjs-wallet",
+  "version": "1.0.0",
   "description": "A toolkit for building Bitcoinbam light wallets",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -14,7 +14,7 @@
   "keywords": [],
   "author": "Btcbam <hello@btcbam.com>",
   "license": "ISC",
-  "repository": "git+https://github.com/aw7855689/bamswapjs-wallet.git",
+  "repository": "git+https://github.com/aw7855689/btcbamjs-wallet.git",
   "devDependencies": {
     "@types/bitcoinjs-lib": "^3.3.1",
     "@types/chai": "^4.1.2",
@@ -32,7 +32,7 @@
   "dependencies": {
     "@types/bip38": "^2.0.0",
     "@types/secp256k1": "^3.5.0",
-    "bweb3js": "^1.0.0",
+    "Bweb3": "^1.0.0",
     "axios": "^0.21.1",
     "bignumber.js": "4.1.0",
     "bip38": "^2.0.2",
@@ -49,7 +49,7 @@
     "varuint-bitcoin": "^1.1.0"
   },
   "bugs": {
-    "url": "https://github.com/aw7855689/bamswapjs-wallet/issues"
+    "url": "https://github.com/aw7855689/btcbamjs-wallet/issues"
   },
-  "homepage": "https://github.com/aw7855689/bamswapjs-wallet#readme"
+  "homepage": "https://github.com/aw7855689/btcbamjs-wallet#readme"
 }

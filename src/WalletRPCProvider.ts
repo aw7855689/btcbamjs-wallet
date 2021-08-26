@@ -2,7 +2,7 @@ import { IProvider } from "./Provider"
 import axios, { CancelTokenSource } from "axios"
 import { Insight } from "./Insight"
 import { Wallet } from "./Wallet"
-import {Encoder} from "bweb3js"
+import {Encoder} from "Bweb3"
 
 export class WalletRPCProvider implements IProvider {
 
@@ -21,7 +21,7 @@ export class WalletRPCProvider implements IProvider {
       gasPrice,
     ] = params
 
-    // The underlying bamswapjs-wallet API expects gasPrice and amount to be specified in sat
+    // The underlying btcbamjs-wallet API expects gasPrice and amount to be specified in sat
     const gasPriceInGreph = Math.floor((gasPrice || 0.0000004) * 1e7)
     const amountInGreph = Math.floor((amount || 0) * 1e7)
 
